@@ -36,7 +36,7 @@ module lfsr_top(
     clk_divider divider(.clk_in(clk), .ratio(31'h00300000), .clk_out(slow_clk));
     hc164 shift_register(.data_in(seed_btn ^ xor_2), .reset(reset_btn), .clk(slow_clk), .data_out(shift_register_data));
     
-    assign leds = {shift_register_data[3], shift_register_data[1], shift_register_data[4], shift_register_data[7]};
+    assign leds = {shift_register_data[3], shift_register_data[1], shift_register_data[6], shift_register_data[4]};
     assign xor_0 = shift_register_data[7] ^ shift_register_data[5];
     assign xor_1 = shift_register_data[4] ^ shift_register_data[3];
     assign xor_2 = xor_0 ^ xor_1;
